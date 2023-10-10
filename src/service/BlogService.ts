@@ -44,7 +44,7 @@ import pool from "../utils/database";
             if (checkBlogResult.rows.length === 0) {
                 throw new Error('Blog does not exist');
             }
-            const query = `UPDATE posts SET title = $2, content = $3 WHERE user_id = $1 AND id = $4 RETURNING *`
+            const query = `UPDATE posts SET title = $2, content = $3, updated_at = NOW() WHERE user_id = $1 AND id = $4 RETURNING *`
             const result = await pool.query(query, [userId, title, content, blogId])
             return result.rows
         }

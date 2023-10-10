@@ -1,39 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About this blog api</title>
-  </head>
-  <body>
-    <h1>About this api</h1>
-    <span><b>User Routes</b></span>
-    <p>POST Sign up -> /api/user/signUp</p>
-    <p>POST Sign in -> /api/user/signIn</p>
-    <!-- <p>POST Log out -> /api/user/signOut</p> -->
-    <b>After you sign in you will be provided with a token which you'll add to your 'Bearer token headers' to authenticate you </b>
-    <br>
-    <span><b>Blog Routes</b></span>
-    <p>GET View all blogs -> /api/blog</p>
-    <p>GET View blog -> /api/blog/{id}</p>
-    <p>POST Create blog -> /api/blog</p>
-    <p>PUT Update blogs -> /api/blog/{id}</p>
-    <p>DELETE Delete blog -> /api/blog/{id}</p>
-    <br>
-    <span><b>Setup</b></span>
+    <title>Backend API Documentation</title>
+</head>
+<body>
+    <h1>How to Use This Backend API</h1>
+
+    <h2>User Routes</h2>
+    <h3>POST Sign Up</h3>
+    <p>Route: <code>/api/user/signUp</code></p>
+    <p>Parameters: <code>username</code>, <code>password</code></p>
+    <p>Returns a JSON object acknowledging success.</p>
+
+    <h3>POST Sign In</h3>
+    <p>Route: <code>/api/user/signIn</code></p>
+    <p>Parameters: <code>username</code>, <code>password</code></p>
+    <p>Returns a JSON object with the following format:</p>
+    <pre>
+        {
+            "token": "string"
+        }
+    </pre>
+    <p>After signing in, you will receive a token that you must include in your 'Bearer token headers' to authenticate yourself.</p>
+
+    <!-- Add similar HTML structure for Blog Routes -->
+
+    <h2>Setup</h2>
     <ol>
-    <li>Clone git repo</li>
-    <li>Create .env file and edit the ff. postgres config</li>
-    <ul>
-      <li>DB_HOST</li>
-      <li>DB_PORT</li>
-      <li>DB_PASSWORD</li>
-      <li>DB_NAME=blog</li>
-    </ul>
-    <li>Download node</li>
-    <li>run "npm install" in project path in cmd</li>
-    <li>run "npm start" in project path in cmd</li>
-    <li>Server should start!!</li>
+        <li>Clone the Git repository.</li>
+        <li>Create a <code>.env</code> file and edit the following PostgreSQL configurations:</li>
+        <ul>
+            <li><code>DB_HOST</code></li>
+            <li><code>DB_PORT</code></li>
+            <li><code>DB_PASSWORD</code></li>
+            <li><code>DB_NAME=blog</code></li>
+        </ul>
+        <li>Download and install Node.js.</li>
+        <li>Run <code>npm install</code> in the project directory using the command line.</li>
+        <li>Start the server by running <code>npm start</code> in the project directory using the command line.</li>
+        <li>Create a user by using the provided user routes.</li>
+        <li>Sign in to obtain an authentication token.</li>
+        <li>Use the blog routes with the obtained token in the request header for authentication.</li>
     </ol>
-  </body>
+</body>
 </html>
