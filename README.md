@@ -1,48 +1,84 @@
-## How to use this backend API
+## How to Use This Backend API
 
-This backend API provides the following routes:
+This README provides detailed instructions on how to use the backend API, including available routes and setup steps.
 
 ### User Routes
-- POST Sign up -> /api/user/signUp -> username, password -> returns a JSON object acknowledging success:
-- POST Sign in -> /api/user/signIn -> username, password -> returns a JSON object with the following format:
-  {
-    "token": "string"
-  }
+- **POST Sign Up**
+  - Route: `/api/user/signUp`
+  - Parameters: `username`, `password`
+  - Returns a JSON object acknowledging success.
 
-After you sign in you will be provided with a token which you'll add to your 'Bearer token headers' to authenticate you.
+- **POST Sign In**
+  - Route: `/api/user/signIn`
+  - Parameters: `username`, `password`
+  - Returns a JSON object with the following format:
+    ```json
+    {
+      "token": "string"
+    }
+    ```
+  After signing in, you will receive a token that you must include in your 'Bearer token headers' to authenticate yourself.
 
 ### Blog Routes
-- GET View all blogs -> /api/blog
-    returns an array of blogs each with id, title, content, createdAt, updatedAt.
+- **GET View All Blogs**
+  - Route: `/api/blog`
+  - Returns an array of blogs, each containing the following fields:
+    - `id`
+    - `title`
+    - `content`
+    - `createdAt`
+    - `updatedAt`
 
-- GET View blog -> /api/blog/{blogId}
-    returns a single blog with id, title, content, createdAt, updatedAt.
+- **GET View Blog**
+  - Route: `/api/blog/{blogId}`
+  - Returns a single blog with the following fields:
+    - `id`
+    - `title`
+    - `content`
+    - `createdAt`
+    - `updatedAt`
 
-- POST Create blog -> /api/blog
-    creates a new blog and returns the created blog with id, title, content, createdAt, updatedAt.
+- **POST Create Blog**
+  - Route: `/api/blog`
+  - Creates a new blog and returns the created blog with the following fields:
+    - `id`
+    - `title`
+    - `content`
+    - `createdAt`
+    - `updatedAt`
 
-- PUT Update blog -> /api/blog/{blogId}
-    updates a blog and returns the updated blog with with id, title, content, createdAt, updatedAt
+- **PUT Update Blog**
+  - Route: `/api/blog/{blogId}`
+  - Updates a blog and returns the updated blog with the following fields:
+    - `id`
+    - `title`
+    - `content`
+    - `createdAt`
+    - `updatedAt`
 
-- DELETE Delete blog -> /api/blog/{blogId}
-    deletes a blog and returns the deleted blog with id, title, content, createdAt, updatedAt
+- **DELETE Delete Blog**
+  - Route: `/api/blog/{blogId}`
+  - Deletes a blog and returns the deleted blog with the following fields:
+    - `id`
+    - `title`
+    - `content`
+    - `createdAt`
+    - `updatedAt`
 
-<followup_instructions>
-Add a line break after each return statement.
-</followup_instructions>
-
-**Note:** These routes require a JWT token in the request header, which is provided upon sign in.
+**Note:** All of these routes require a JWT token in the request header, which is provided upon signing in.
 
 ### Setup
-1. Clone git repo
-2. Create .env file and edit the ff. postgres config
-    - DB_HOST
-    - DB_PORT
-    - DB_PASSWORD
-    - DB_NAME=blog
-3. Download node
-4. Run "npm install" in project path in cmd
-5. Run "npm start" in project path in cmd
-6. Create a user
-7. Sign in
-8. Use the blog routes
+Follow these steps to set up and run the backend API:
+
+1. Clone the Git repository.
+2. Create a `.env` file and edit the following PostgreSQL configurations:
+    - `DB_HOST`
+    - `DB_PORT`
+    - `DB_PASSWORD`
+    - `DB_NAME=blog`
+3. Download and install Node.js.
+4. Run `npm install` in the project directory using the command line.
+5. Start the server by running `npm start` in the project directory using the command line.
+6. Create a user by using the provided user routes.
+7. Sign in to obtain an authentication token.
+8. Use the blog routes with the obtained token in the request header for authentication.
