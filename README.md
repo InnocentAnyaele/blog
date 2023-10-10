@@ -3,18 +3,17 @@
 This backend API provides the following routes:
 
 ### User Routes
-- POST Sign up -> /api/user/signUp
-- POST Sign in -> /api/user/signIn
-- POST Log out -> /api/user/signOut
+- POST Sign up -> /api/user/signUp -> username, password
+- POST Sign in -> /api/user/signIn -> username, password 
 
 After you sign in you will be provided with a token which you'll add to your 'Bearer token headers' to authenticate you.
 
 ### Blog Routes
 - GET View all blogs -> /api/blog
-- GET View blog -> /api/blog/{id}
+- GET View blog -> /api/blog/{blogId} -> 
 - POST Create blog -> /api/blog
-- PUT Update blog -> /api/blog/{id}
-- DELETE Delete blog -> /api/blog/{id}
+- PUT Update blog -> /api/blog/{blogId}
+- DELETE Delete blog -> /api/blog/{blogId}
 
 **Note:** These routes require a JWT token in the request header, which is provided upon sign in.
 
