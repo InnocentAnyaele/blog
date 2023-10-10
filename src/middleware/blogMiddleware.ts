@@ -2,6 +2,8 @@ import { Request, Response, NextFunction } from "express";
 
 
 export const checkIfPostBlogBodyEmpty = (req:Request, res: Response, next:NextFunction ) => {
+    console.log('this is the request body', req.body)
+    console.log('this is the request params', req.params)
     try{
         const title:string = req.body.title
         const content:string = req.body.content

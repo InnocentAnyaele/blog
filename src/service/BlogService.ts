@@ -9,24 +9,70 @@ import pool from "../utils/database";
         }
         catch(err) {
             console.error('error from view blog service', err);
-            throw err;
+            throw new Error('Internal server error');
         }
     }
  
     const viewBlog = async (userId:number, blogId:number) => {
         try{
-            const userId = 1
             const query = 'SELECT * FROM posts WHERE user_id = $1 AND id = $2'
             const result = await pool.query(query, [userId, blogId])
             return result.rows
         }
         catch(err) {
             console.error(err);
-            throw err
+            throw new Error('Internal server error');
+        }
+    }
+
+    const postBlog = async (userId:number ,title:string, content:string ) => {
+        try{
+            const query = `INSERT INTO posts (user_id, title, content) VALUES ($1, $2, $3) RETURNING *`
+            const result = await pool.query(query, [userId, title, content])
+            return result.rows
+        }
+        catch(err) {
+            console.error(err);
+            throw new Error('Internal server error');
+        }
+    }
+
+    const updateBlog = async (userId:number, blogId:number, title:string, content:string ) => {
+        try{
+            const checkBlogQuery = 'SELECT * FROM posts WHERE user_id = $1 AND id = $2'
+            const checkBlogResult = await pool.query(checkBlogQuery, [userId, blogId])
+            if (checkBlogResult.rows.length === 0) {
+                throw new Error('Blog does not exist');
+            }
+            const query = `UPDATE posts SET title = $2, content = $3 WHERE user_id = $1 AND id = $4 RETURNING *`
+            const result = await pool.query(query, [userId, title, content, blogId])
+            return result.rows
+        }
+        catch(err:any) {
+            console.error(err);
+            throw new Error(err.message);
+        }
+    }
+
+
+    const deleteBlog = async (userId:number ,blogId:number) => {
+        try{
+            const checkBlogQuery = 'SELECT * FROM posts WHERE user_id = $1 AND id = $2'
+            const checkBlogResult = await pool.query(checkBlogQuery, [userId, blogId])
+            if (checkBlogResult.rows.length === 0) {
+                throw new Error('Blog does not exist');
+            }
+            const query = `DELETE FROM posts WHERE user_id = $1 AND id = $2 RETURNING *`
+            const result = await pool.query(query, [userId, blogId])
+            return result.rows
+        }
+        catch(err:any) {
+            console.error(err);
+            throw new Error(err.message);
         }
     }
 
 
 module.exports = {
-    viewBlog, viewBlogs
+    viewBlog, viewBlogs, postBlog, updateBlog, deleteBlog
 }
