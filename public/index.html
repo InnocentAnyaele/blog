@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About this blog api</title>
+  </head>
+  <body>
+    <h1>About this api</h1>
+    <span><b>User Routes</b></span>
+    <p>POST Sign up -> /api/v1/user/signUp</p>
+    <p>POST Sign in -> /api/v1/user/signIn</p>
+    <p>POST Log out -> /api/v1/user/signOut</p>
+    <br>
+    <span><b>Blog Routes</b></span>
+    <p>GET View all blogs -> /api/v1/blog</p>
+    <p>GET View blog -> /api/v1/blog/{id}</p>
+    <p>POST Create blog -> /api/v1/blog</p>
+    <p>PUT Update blogs -> /api/v1/blog/{id}</p>
+    <p>DELETE Delete blog -> /api/v1/blog/{id}</p>
+    <br>
+    <span><b>Setup</b></span>
+    <ol>
+    <li>Clone git repo</li>
+    <li>Create .env file and edit the ff. postgres config</li>
+    <ul>
+      <li>DB_HOST</li>
+      <li>DB_PORT</li>
+      <li>DB_PASSWORD</li>
+      <li>DB_NAME=blog</li>
+    </ul>
+    <li>Download node</li>
+    <li>run "npm install" in project path in cmd</li>
+    <li>run "npm start" in project path in cmd</li>
+    <li>Server should start!!</li>
+    </ol>
+  </body>
+</html>
