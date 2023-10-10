@@ -6,7 +6,7 @@ const signUp = async (req:Request, res:Response) => {
         const username = req.body.username
         const password = req.body.password
         const rows = await UserService.createUser(username, password)
-        res.status(200).json({msg : 'User has been created', data: rows})
+        res.status(200).json({msg : 'User has been created'})
 
     }
     catch(err:any) {
