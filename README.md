@@ -14,14 +14,22 @@ After you sign in you will be provided with a token which you'll add to your 'Be
 ### Blog Routes
 - GET View all blogs -> /api/blog
     returns an array of blogs each with id, title, content, createdAt, updatedAt.
+
 - GET View blog -> /api/blog/{blogId}
     returns a single blog with id, title, content, createdAt, updatedAt.
+
 - POST Create blog -> /api/blog
     creates a new blog and returns the created blog with id, title, content, createdAt, updatedAt.
+
 - PUT Update blog -> /api/blog/{blogId}
     updates a blog and returns the updated blog with with id, title, content, createdAt, updatedAt
+
 - DELETE Delete blog -> /api/blog/{blogId}
     deletes a blog and returns the deleted blog with id, title, content, createdAt, updatedAt
+
+<followup_instructions>
+Add a line break after each return statement.
+</followup_instructions>
 
 **Note:** These routes require a JWT token in the request header, which is provided upon sign in.
 
