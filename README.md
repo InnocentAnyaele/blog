@@ -71,11 +71,12 @@ This README provides detailed instructions on how to use the backend API, includ
 Follow these steps to set up and run the backend API:
 
 1. Clone the Git repository.
-2. Create a `.env` file and edit the following PostgreSQL configurations:
-    - `DB_HOST`
-    - `DB_PORT`
-    - `DB_PASSWORD`
+2. Create a `.env` file and edit the following PostgreSQL and JWT_SECRET configurations:
+    - `DB_HOST=[Hostname]`
+    - `DB_PORT=5432`
+    - `DB_PASSWORD=[Password]`
     - `DB_NAME=blog`
+    - `JWT_SECRET=randomSecretKey`
 3. Download and install Node.js.
 4. Run `npm install` in the project directory using the command line.
 5. Start the server by running `npm start` in the project directory using the command line.
