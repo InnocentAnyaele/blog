@@ -30,12 +30,13 @@
     <h2>Setup</h2>
     <ol>
         <li>Clone the Git repository.</li>
-        <li>Create a <code>.env</code> file and edit the following PostgreSQL configurations:</li>
+        <li>Create a <code>.env</code> file and edit the following PostgreSQL and JWT_SECRET configurations:</li>
         <ul>
-            <li><code>DB_HOST</code></li>
-            <li><code>DB_PORT</code></li>
-            <li><code>DB_PASSWORD</code></li>
+            <li><code>DB_HOST=[hostname]</code></li>
+            <li><code>DB_PORT=5432</code></li>
+            <li><code>DB_PASSWORD=[password]</code></li>
             <li><code>DB_NAME=blog</code></li>
+            <li><code>JWt_SECRET=randomSecretKey</code></li>
         </ul>
         <li>Download and install Node.js.</li>
         <li>Run <code>npm install</code> in the project directory using the command line.</li>
