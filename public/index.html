@@ -7,43 +7,111 @@
 </head>
 <body>
     <h1>How to Use This Backend API</h1>
-
+    <p>This documentation provides detailed instructions on how to use the backend API, including available routes and setup steps.</p>
+  
     <h2>User Routes</h2>
-    <h3>POST Sign Up</h3>
-    <p>Route: <code>/api/user/signUp</code></p>
-    <p>Parameters: <code>username</code>, <code>password</code></p>
-    <p>Returns a JSON object acknowledging success.</p>
-
-    <h3>POST Sign In</h3>
-    <p>Route: <code>/api/user/signIn</code></p>
-    <p>Parameters: <code>username</code>, <code>password</code></p>
-    <p>Returns a JSON object with the following format:</p>
-    <pre>
-        {
-            "token": "string"
-        }
-    </pre>
-    <p>After signing in, you will receive a token that you must include in your 'Bearer token headers' to authenticate yourself.</p>
-
-    <!-- Add similar HTML structure for Blog Routes -->
-
+    <ul>
+      <li>
+        <h3>POST Sign Up</h3>
+        <p>Route: <code>/api/user/signUp</code></p>
+        <p>Parameters: <code>username</code>, <code>password</code></p>
+        <p>Returns a JSON object acknowledging success.</p>
+      </li>
+      <li>
+        <h3>POST Sign In</h3>
+        <p>Route: <code>/api/user/signIn</code></p>
+        <p>Parameters: <code>username</code>, <code>password</code></p>
+        <p>Returns a JSON object with the following format:</p>
+        <pre><code>{
+    "token": "string"
+  }</code></pre>
+        <p>After signing in, you will receive a token that you must include in your 'Bearer token headers' to authenticate yourself.</p>
+      </li>
+    </ul>
+  
+    <h2>Blog Routes</h2>
+    <ul>
+      <li>
+        <h3>GET View All Blogs</h3>
+        <p>Route: <code>/api/blog</code></p>
+        <p>Returns an array of blogs, each containing the following fields:</p>
+        <ul>
+          <li><code>id</code></li>
+          <li><code>title</code></li>
+          <li><code>content</code></li>
+          <li><code>createdAt</code></li>
+          <li><code>updatedAt</code></li>
+        </ul>
+      </li>
+      <li>
+        <h3>GET View Blog</h3>
+        <p>Route: <code>/api/blog/{blogId}</code></p>
+        <p>Returns a single blog with the following fields:</p>
+        <ul>
+          <li><code>id</code></li>
+          <li><code>title</code></li>
+          <li><code>content</code></li>
+          <li><code>createdAt</code></li>
+          <li><code>updatedAt</code></li>
+        </ul>
+      </li>
+      <li>
+        <h3>POST Create Blog</h3>
+        <p>Route: <code>/api/blog</code></p>
+        <p>Creates a new blog and returns the created blog with the following fields:</p>
+        <ul>
+          <li><code>id</code></li>
+          <li><code>title</code></li>
+          <li><code>content</code></li>
+          <li><code>createdAt</code></li>
+          <li><code>updatedAt</code></li>
+        </ul>
+      </li>
+      <li>
+        <h3>PUT Update Blog</h3>
+        <p>Route: <code>/api/blog/{blogId}</code></p>
+        <p>Updates a blog and returns the updated blog with the following fields:</p>
+        <ul>
+          <li><code>id</code></li>
+          <li><code>title</code></li>
+          <li><code>content</code></li>
+          <li><code>createdAt</code></li>
+          <li><code>updatedAt</code></li>
+        </ul>
+      </li>
+      <li>
+        <h3>DELETE Delete Blog</h3>
+        <p>Route: <code>/api/blog/{blogId}</code></p>
+        <p>Deletes a blog and returns the deleted blog with the following fields:</p>
+        <ul>
+          <li><code>id</code></li>
+          <li><code>title</code></li>
+          <li><code>content</code></li>
+          <li><code>createdAt</code></li>
+          <li><code>updatedAt</code></li>
+        </ul>
+      </li>
+    </ul>
+  
+    <p><strong>Note:</strong> All of these routes require a JWT token in the request header, which is provided upon signing in.</p>
+  
     <h2>Setup</h2>
     <ol>
-        <li>Clone the Git repository.</li>
-        <li>Create a <code>.env</code> file and edit the following PostgreSQL and JWT_SECRET configurations:</li>
-        <ul>
-            <li><code>DB_HOST=[hostname]</code></li>
-            <li><code>DB_PORT=5432</code></li>
-            <li><code>DB_PASSWORD=[password]</code></li>
-            <li><code>DB_NAME=blog</code></li>
-            <li><code>JWt_SECRET=randomSecretKey</code></li>
-        </ul>
-        <li>Download and install Node.js.</li>
-        <li>Run <code>npm install</code> in the project directory using the command line.</li>
-        <li>Start the server by running <code>npm start</code> in the project directory using the command line.</li>
-        <li>Create a user by using the provided user routes.</li>
-        <li>Sign in to obtain an authentication token.</li>
-        <li>Use the blog routes with the obtained token in the request header for authentication.</li>
+      <li>Clone the Git repository.</li>
+      <li>Create a <code>.env</code> file and edit the following PostgreSQL and JWT_SECRET configurations:</li>
+      <ul>
+        <li><code>DB_HOST=[Hostname]</code></li>
+        <li><code>DB_PORT=5432</code></li>
+        <li><code>DB_PASSWORD=[Password]</code></li>
+        <li><code>DB_NAME=blog</code></li>
+        <li><code>JWT_SECRET=randomSecretKey</code></li>
+      </ul>
+      <li>Download and install Node.js.</li>
+      <li>Run <code>npm install</code> in the project directory using the command line.</li>
+      <li>Start the server by running <code>npm start</code> in the project directory using the command line.</li>
+      <li>Create a user by using the provided user routes.</li>
+      <li>Sign in to obtain an authentication token.</li>
+      <li>Use the blog routes with the obtained token in the request header for authentication.</li>
     </ol>
 </body>
 </html>

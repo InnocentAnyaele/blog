@@ -40,6 +40,7 @@ This README provides detailed instructions on how to use the backend API, includ
 
 - **POST Create Blog**
   - Route: `/api/blog`
+  - Parameters: `title`, `content`
   - Creates a new blog and returns the created blog with the following fields:
     - `id`
     - `title`
